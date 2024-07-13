@@ -1,40 +1,48 @@
-# Working with Terraform Modules
+# terraform-azurerm-resource_group_storage
 
-## Prerequisites
+## Overview
 
-To complete this task, you must have Terraform and Azure CLI installed and configured on your machine.
+This Terraform module creates an Azure Resource Group and Storage Account.
 
-## Steps to Complete the Task
+## Usage
 
-**1. Fork this Repository**
+```hcl
+module "resource_group_storage" {
+  source = "github.com/YOUR_GITHUB_USERNAME/terraform-azurerm-resource_group_storage"
 
-**2. Create a Simple Terraform Module**
+  resource_group_name  = "example-rg"
+  location             = "West Europe"
+  storage_account_name = "examplestorageacct"
+}
+Inputs
+Name	Description	Type	Default	Required
+resource_group_name	The name of the resource group	string	n/a	yes
+location	The location of the resource group	string	n/a	yes
+storage_account_name	The name of the storage account	string	n/a	yes
+Outputs
+Name	Description
+resource_group_name	The name of the resource group
+storage_account_name	The name of the storage account
+Example
+hcl
+Copy code
+module "resource_group_storage" {
+  source = "github.com/YOUR_GITHUB_USERNAME/terraform-azurerm-resource_group_storage"
 
-- Create a directory named `modules/resource_group_storage` in the root of your repository.
-- Inside the `modules/resource_group_storage` directory, create the following files:
-    * `main.tf`: Define the resources.
-    * `variables.tf`: Define the variables.
-    * `outputs.tf`: Define the outputs.
+  resource_group_name  = "example-rg"
+  location             = "West Europe"
+  storage_account_name = "examplestorageacct"
+}
 
-**3. Publish the Module on GitHub**
+output "resource_group_name" {
+  value = module.resource_group_storage.resource_group_name
+}
 
-- Create a new repository on GitHub named according to Terraform's naming convention, e.g.`terraform-azurerm-resource_group_storage`.
-- Add the module files (`main.tf`, `variables.tf`, `outputs.tf`) to this repository.
-- Add a `README.md` file with detailed usage instructions.
-- Add a `LICENSE` file to specify the usage rights.
-- Add a `.gitignore` file to ignore Terraform state files and other sensitive information.
-- Commit and push the files to GitHub.
+output "storage_account_name" {
+  value = module.resource_group_storage.storage_account_name
+}
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-**4. Publish the Module to Terraform Registry**
-
-- Ensure your GitHub repository name follows the format `terraform-<PROVIDER>-<MODULE_NAME>`.
-- Sign in to the Terraform Registry with your GitHub account.
-- Publish the module by linking your GitHub repository to the Terraform Registry.
-- Tag the repository with a version (e.g., `v1.0.0`) following semantic versioning.
-
-**5. Use the Module from Terraform Registry**
-
-- In your main Terraform configuration (`main.tf`), use the module from the Terraform Registry.
-- Initialize and apply the configuration to verify that the module is used correctly.
-
-**6. Pull request's description should also contain a reference to a successful workflow run**
+Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any changes.
