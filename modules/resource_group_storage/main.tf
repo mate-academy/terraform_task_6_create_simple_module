@@ -2,6 +2,11 @@ provider "azurerm" {
   features {}
 }
 
+module "resource_group_storage" {
+  source  = "IKruglyak/resource_group_storage/azurerm"
+  version = "1.0.0"
+}
+
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.location
