@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-To complete this task, you must have Terraform and Azure CLI installed and configured on your machine.
+To complete this task, Terraform and Azure CLI must be installed and configured on your machine.
 
 ## Steps to Complete the Task
 
@@ -12,9 +12,9 @@ To complete this task, you must have Terraform and Azure CLI installed and confi
 
 - Create a directory named `modules/resource_group_storage` in the root of your repository.
 - Inside the `modules/resource_group_storage` directory, create the following files:
-    * `main.tf`: Define the resources.
-    * `variables.tf`: Define the variables.
-    * `outputs.tf`: Define the outputs.
+    * `main.tf`: define the resources.
+    * `variables.tf`: define the variables.
+    * `outputs.tf`: define the outputs.
 
 **3. Publish the Module on GitHub**
 
