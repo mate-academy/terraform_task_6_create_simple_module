@@ -4,9 +4,9 @@ variable "resource_group_name" {
 }
 
 variable "location" {
-  description = "The Azure region to deploy resources"
+  description = "The location/region where the resource group will be created"
   type        = string
-  default     = "West US"
+  default     = "West Europe" # You can set a default or override it via tfvars or command line
 }
 
 variable "storage_account_name" {
