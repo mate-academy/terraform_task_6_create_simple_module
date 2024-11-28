@@ -20,7 +20,7 @@ To complete this task, Terraform and Azure CLI must be installed and configured 
 
 - Create a new repository on GitHub named according to Terraform's naming convention, e.g.`terraform-azurerm-resource_group_storage`.
 - Add the module files (`main.tf`, `variables.tf`, `outputs.tf`) to this repository.
-- Add a `README.md` file with detailed usage instructions.
+- Add an `INSTRUCTION.md` file with detailed usage instructions.
 - Add a `LICENSE` file to specify the usage rights.
 - Add a `.gitignore` file to ignore Terraform state files and other sensitive information.
 - Commit and push the files to GitHub.
