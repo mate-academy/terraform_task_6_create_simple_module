@@ -20,3 +20,4 @@ module "resource_group_storage" {
   version = "1.0.0"
 }
 
+
