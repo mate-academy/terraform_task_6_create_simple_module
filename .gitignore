@@ -1,0 +1,4 @@
+.terraform
+.terraform.lock.hcl
+modules/resource_group_storage/.terraform
+modules/resource_group_storage/.terraform.lock.hcl
