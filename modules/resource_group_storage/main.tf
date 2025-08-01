@@ -15,10 +15,10 @@ module "resource_group_storage" {
   source  = "registry.terraform.io/leoleiden/resource_group_storage/azurerm"
   version = "1.0.0"
 
-  resource_group_name = "my-awesome-rg-from-module"
-  location            = "East US"
-  storage_account_name = "myawesomestorageacc12345"
-  storage_account_tier = "Standard"
+  resource_group_name              = "my-awesome-rg-from-module"
+  location                         = "East US"
+  storage_account_name             = "myawesomestorageacc12345"
+  storage_account_tier             = "Standard"
   storage_account_replication_type = "LRS"
 }
 
