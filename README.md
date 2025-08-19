@@ -1,40 +1,41 @@
-# Working with Terraform Modules
+# Terraform module for creating storage account in Azure
 
-## Prerequisites
+## Usage Example
 
-To complete this task, Terraform and Azure CLI must be installed and configured on your machine.
+module "rg_storage" {
+  source  = "app.terraform.io/maksimens09/resource_group_storage/azurerm"
+  version = "1.0.7"
 
-## Steps to Complete the Task
+  resource_group_name     = "example-rg"
+  location                = "East US"
+  storage_account_name    = "examplestorageacct"
+}
 
-**1. Fork this Repository**
+## Input Variables
 
-**2. Create a Simple Terraform Module**
+| Name                  | Type   | Required | Description                              |
+|-----------------------|--------|----------|------------------------------------------|
+| resource_group_name   | string | yes      | The name of the Azure Resource Group     |
+| location              | string | yes      | The Azure location for the Resource Group|
+| storage_account_name  | string | yes      | Unique name for the Storage Account      |
 
-- Create a directory named `modules/resource_group_storage` in the root of your repository.
-- Inside the `modules/resource_group_storage` directory, create the following files:
-    * `main.tf`: define the resources.
-    * `variables.tf`: define the variables.
-    * `outputs.tf`: define the outputs.
+## Outputs
 
-**3. Publish the Module on GitHub**
+| Name                 | Description                               |
+|----------------------|-------------------------------------------|
+| resource_group_id    | The ID of the created Azure Resource Group |
+| storage_account_id   | The ID of the created Storage Account      |
 
-- Create a new repository on GitHub named according to Terraform's naming convention, e.g.`terraform-azurerm-resource_group_storage`.
-- Add the module files (`main.tf`, `variables.tf`, `outputs.tf`) to this repository.
-- Add an `INSTRUCTION.md` file with detailed usage instructions.
-- Add a `LICENSE` file to specify the usage rights.
-- Add a `.gitignore` file to ignore Terraform state files and other sensitive information.
-- Commit and push the files to GitHub.
+## Requirements
 
-**4. Publish the Module to Terraform Registry**
+- Terraform >= 1.0.0
+- AzureRM Provider >= 3.0.0
 
-- Ensure your GitHub repository name follows the format `terraform-<PROVIDER>-<MODULE_NAME>`.
-- Sign in to the Terraform Registry with your GitHub account.
-- Publish the module by linking your GitHub repository to the Terraform Registry.
-- Tag the repository with a version (e.g., `v1.0.0`) following semantic versioning.
+## Notes
 
-**5. Use the Module from Terraform Registry**
+- The Storage Account name must be globally unique across Azure.
+- Make sure you have authenticated with the AzureRM provider before running the module.
 
-- In your main Terraform configuration (`main.tf`), use the module from the Terraform Registry.
-- Initialize and apply the configuration to verify that the module is used correctly.
+## License
 
-**6. Pull request's description should also contain a reference to a successful workflow run**
+This module is distributed under the MIT License. See the LICENSE file for details.
