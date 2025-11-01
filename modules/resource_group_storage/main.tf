@@ -1,7 +1,3 @@
-module "naming" {
-  source  = "Azure/naming/azurerm"
-  version = "0.4.2"
-}
 
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name

@@ -1,6 +1,6 @@
 variable "resource_group_name" {
     type        = string
-    default     = "value"
+
 }
 
 variable "location" {
@@ -10,7 +10,7 @@ variable "location" {
 
 variable "storage_account_name" {
     type        = string
-    default     = "valuestorageacct"
+
 }
 
 variable "account_tier" {
