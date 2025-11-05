@@ -1,12 +1,29 @@
-resource "azurerm_resource_group" "this" {
-  name     = var.resource_group_name
-  location = var.location
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "3.105.0"
+    }
+  }
 }
 
-resource "azurerm_storage_account" "this" {
-  name                     = var.storage_account_name
-  resource_group_name      = azurerm_resource_group.this.name
-  location                 = azurerm_resource_group.this.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
+provider "azurerm" {
+  features {}
+}
+
+module "rg_storage" {
+  source  = "github.com/chornoknysh/terraform-azurerm-resource_group_storage"
+  version = "1.0.0"
+
+  resource_group_name  = "example-rg"
+  location             = "West Europe"
+  storage_account_name = "examplestorageacct123"
+}
+
+output "resource_group_id" {
+  value = module.rg_storage.resource_group_id
+}
+
+output "storage_account_id" {
+  value = module.rg_storage.storage_account_id
 }
