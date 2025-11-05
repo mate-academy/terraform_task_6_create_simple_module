@@ -12,7 +12,8 @@ provider "azurerm" {
 }
 
 module "rg_storage" {
-  source  = "github.com/chornoknysh/terraform-azurerm-resource_group_storage"
+  # ✅ Використовуємо Registry-формат: <namespace>/<name>/<provider>
+  source  = "chornoknysh/resource_group_storage/azurerm"
   version = "1.0.0"
 
   resource_group_name  = "example-rg"
