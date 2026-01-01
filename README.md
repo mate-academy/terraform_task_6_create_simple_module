@@ -38,3 +38,21 @@ To complete this task, Terraform and Azure CLI must be installed and configured 
 - Initialize and apply the configuration to verify that the module is used correctly.
 
 **6. Pull request's description should also contain a reference to a successful workflow run**
+
+
+## Terraform Registry Module Usage
+
+The module created in this task has been published to the Terraform Registry
+and is consumed in the root configuration.
+
+🔗 Module link:
+https://registry.terraform.io/modules/maximprysyazhnikov/resource_group_storage/azurerm
+
+
+The module publishing repository includes all required files:
+- LICENSE
+- .gitignore
+- INSTRUCTION.md
+
+Repository:
+https://github.com/maximprysyazhnikov/terraform-azurerm-resource_group_storage
