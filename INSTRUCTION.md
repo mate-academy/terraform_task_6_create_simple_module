@@ -4,7 +4,7 @@
 
 ```hcl
 module "resource_group_storage" {
-  source  = "<YOUR_GITHUB_USERNAME>/resource_group_storage/azurerm"
+  source  = "demon9709/resource_group_storage/azurerm"
   version = "1.0.0"
 
   resource_group_name  = "rg-example"
