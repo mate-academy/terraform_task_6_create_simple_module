@@ -14,7 +14,7 @@ provider "azurerm" {
 }
 
 module "resource_group_storage" {
-  source = "./modules/resource_group_storage"
+  source = "demon9709/resource_group_storage/azurerm"
 
   resource_group_name  = var.resource_group_name
   location             = var.location
