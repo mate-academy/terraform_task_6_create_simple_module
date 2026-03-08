@@ -1,5 +1,5 @@
 module "resource_group_storage" {
-  source  = "app.terraform.io/matetask/resource_group_storage/azurerm"
+  source  = "matetask/resource_group_storage/azurerm"
   version = "1.0.0"
 
   resource_group_name  = "mate_task"
