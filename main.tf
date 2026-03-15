@@ -1,5 +1,6 @@
 module "resource_group_storage" {
-  source = "./modules/resource_group_storage"
+  source  = "TsykalanovDima/resource_group_storage/azurerm"
+  version = "1.0.0"
 
   resource_group_name  = "mate-academy-rg"
   location             = "westeurope"
