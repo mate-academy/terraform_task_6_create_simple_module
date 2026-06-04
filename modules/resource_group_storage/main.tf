@@ -1,15 +1,3 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "3.105.0"
-    }
-  }
-}
-
-provider "azurerm" {
-  features {}
-}
 
 
 resource "azurerm_resource_group" "example" {
@@ -25,12 +13,3 @@ resource "azurerm_storage_account" "example" {
   account_replication_type = var.account_replication_type
 }
 
-
-module "resource_group_storage" {
-  source  = "app.terraform.io/yuriy-devops/resource_group_storage/azurerm"
-  version = "1.0.0"
-
-  resource_group_name = "my-registry-rg"
-  storage_account_name = "mystorage234678"
-  location             = "eastus"
-}

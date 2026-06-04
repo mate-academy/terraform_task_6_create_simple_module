@@ -22,7 +22,7 @@ location - Azure region
 /Default\ - centralus
 
 storage_account_name - Name of storage account
-/Default\ - tfvmexStorageAccountName
+/Default\ - tfvmexstorage
 
 account_tier - Storage account tier
 /Default\ - "Standard"
