@@ -63,3 +63,27 @@ terraform fmt -recursive
 terraform init
 terraform validate
 ```
+
+## Private Registry Authentication
+This project uses a private module from Terraform Registry on Terraform Cloud.
+
+### Local machine
+Run login once:
+```bash
+terraform login
+```
+
+Or set an environment variable token for the current shell:
+```bash
+export TF_TOKEN_app_terraform_io="<your-token>"
+```
+
+PowerShell:
+```powershell
+$env:TF_TOKEN_app_terraform_io = "<your-token>"
+```
+
+### GitHub Actions
+Add repository secret:
+- Name: `TF_TOKEN_app_terraform_io`
+- Value: Terraform Cloud user or team token with access to module `dimonalek/resource_group_storage/azurerm`
