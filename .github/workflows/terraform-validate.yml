@@ -12,6 +12,8 @@ jobs:
   terraform_validate:
     name: "Format and Validate Code"
     runs-on: ubuntu-latest
+    env:
+      TF_TOKEN_app_terraform_io: ${{ secrets.TF_TOKEN_app_terraform_io }}
 
     steps:
     - name: Checkout code
@@ -50,7 +52,7 @@ jobs:
       run: terraform fmt -check -recursive -diff
   
     - name: Terraform Init
-      run: terraform init
+      run: terraform init -input=false
   
     - name: Terraform Validate
       run: terraform validate
