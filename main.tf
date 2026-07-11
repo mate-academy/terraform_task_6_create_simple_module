@@ -11,7 +11,7 @@ provider "azurerm" {
   features {}
 }
 
-module "resourcegroupstorage" {
+module "resource_group_storage" {
   source  = "AndS9/resourcegroupstorage/azurerm"
   version = "1.0.3"
 
