@@ -12,5 +12,6 @@ provider "azurerm" {
 }
 
 module "resource_group_storage" {
-  source = "github.com/Anastasiia-Chikrizova/terraform-azurerm-resource_group_storage"
+  source  = "Anastasiia-Chikrizova/resource_group_storage/azurerm"
+  version = "1.0.0"
 }
