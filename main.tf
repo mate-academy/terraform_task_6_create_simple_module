@@ -12,6 +12,9 @@ provider "azurerm" {
 }
 
 module "resource_group_storage" {
-  source  = "Anastasiia-Chikrizova/resource_group_storage/azurerm"
-  version = "1.0.0"
+  source = "./modules/resource_group_storage"
+
+  resource_group_name  = "task6terr"
+  storage_account_name = "task6terrstorage"
+  location             = "Denmark East"
 }
