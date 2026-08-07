@@ -13,8 +13,8 @@ provider "azurerm" {
 }
 
 module "resource_group_storage" {
-  source  = "app.terraform.io/Clem97121/resource_group_storage/azurerm"
-  version = "1.0.0"
+  source  = "Clem97121/resourcegroupstorage/azureem"
+  version = "1.0.3"
 
   resource_group_name      = var.rg_name
   location                 = "East US"
