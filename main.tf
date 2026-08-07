@@ -14,7 +14,7 @@ provider "azurerm" {
 
 module "resource_group_storage" {
   source  = "Clem97121/resourcegroupstorage/azurerm"
-  version = "1.0.0"
+  version = "1.0.3"
 
   resource_group_name      = "rg-production-env"
   location                 = "East US"
