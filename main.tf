@@ -16,9 +16,9 @@ module "resource_group_storage" {
   source  = "Clem97121/resourcegroupstorage/azureem"
   version = "1.0.3"
 
-  resource_group_name      = var.rg_name
+  resource_group_name      = "rg-production-env"
   location                 = "East US"
-  storage_account_name     = var.storage_name
+  storage_account_name     = "stprodstorageacc9876"
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
