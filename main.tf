@@ -16,9 +16,9 @@ module "resource_group_storage" {
   source  = "app.terraform.io/Clem97121/resource_group_storage/azurerm"
   version = "1.0.0"
 
-  resource_group_name      = "rg-production-env"
+  resource_group_name      = var.rg_name
   location                 = "East US"
-  storage_account_name     = "stprodstorageacc9876"
+  storage_account_name     = var.storage_name
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
