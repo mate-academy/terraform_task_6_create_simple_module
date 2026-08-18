@@ -1,0 +1,10 @@
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate*
+crash.log
+override.tf
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
