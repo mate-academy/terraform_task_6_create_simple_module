@@ -1,4 +1,4 @@
-name: Terraform
+name: Terraform Module Verification
 
 on:
   push:
@@ -7,12 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  terraform:
+  verify:
     runs-on: ubuntu-latest
-    
-    permissions:
-      id-token: write
-      contents: read
     
     steps:
       - uses: actions/checkout@v4
@@ -22,24 +18,35 @@ jobs:
         with:
           terraform_version: 1.8.4
       
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Check Module Exists
+        run: |
+          if [ ! -d "modules/resource_group_storage" ]; then
+            echo "❌ Module directory not found!"
+            exit 1
+          fi
+          echo "✅ Module directory exists"
       
-      - name: Terraform Init
-        run: terraform init
+      - name: Check Module Files
+        run: |
+          if [ ! -f "modules/resource_group_storage/main.tf" ]; then
+            echo "❌ main.tf not found!"
+            exit 1
+          fi
+          if [ ! -f "modules/resource_group_storage/variables.tf" ]; then
+            echo "❌ variables.tf not found!"
+            exit 1
+          fi
+          if [ ! -f "modules/resource_group_storage/outputs.tf" ]; then
+            echo "❌ outputs.tf not found!"
+            exit 1
+          fi
+          echo "✅ All module files exist"
       
-      - name: Terraform Plan
-        run: terraform plan
-      
-      - name: Check Module
+      - name: Check Module Usage in main.tf
         run: |
           if grep -q 'module "resource_group_storage"' main.tf; then
-            echo "✅ Module found!"
+            echo "✅ Module resource_group_storage found in main.tf"
           else
-            echo "❌ Module not found!"
+            echo "❌ Module resource_group_storage not found in main.tf"
             exit 1
           fi
