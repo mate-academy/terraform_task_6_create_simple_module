@@ -22,7 +22,7 @@ provider "azurerm" {
   use_oidc = true
 }
 
-module "my_storage" {
+module "resource_group_storage" {
   source = "./modules/resource_group_storage"
   
   resource_group_name  = "rg-module-test"
@@ -37,9 +37,9 @@ module "my_storage" {
 }
 
 output "storage_account_name" {
-  value = module.my_storage.storage_account_name
+  value = module.resource_group_storage.storage_account_name
 }
 
 output "resource_group_name" {
-  value = module.my_storage.resource_group_name
+  value = module.resource_group_storage.resource_group_name
 }
