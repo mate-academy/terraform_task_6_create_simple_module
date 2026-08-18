@@ -1,6 +1,6 @@
 terraform {
   required_version = ">= 1.8.4"
-  
+
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -11,18 +11,18 @@ terraform {
 
 provider "azurerm" {
   features {}
-  use_oidc = true
+  use_oidc                   = true
   skip_provider_registration = true
 }
 
 module "resource_group_storage" {
   source = "./modules/resource_group_storage"
-  
+
   resource_group_name  = "rg-module-test"
   location             = "eastus"
   storage_account_name = "mystoragemodule999"
   container_name       = "moduledata"
-  
+
   tags = {
     Environment = "test"
     Module      = "true"
