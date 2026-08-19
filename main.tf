@@ -16,7 +16,8 @@ provider "azurerm" {
 }
 
 module "resource_group_storage" {
-  source = "./modules/resource_group_storage"
+  source  = "ll221/terraform-azurerm-resource_group_storage/azurerm"
+  version = "~> 1.0.0"
 
   resource_group_name  = "rg-module-test"
   location             = "eastus"
@@ -26,13 +27,26 @@ module "resource_group_storage" {
   tags = {
     Environment = "test"
     Module      = "true"
+    CreatedBy   = "Terraform"
   }
 }
 
 output "storage_account_name" {
-  value = module.resource_group_storage.storage_account_name
+  description = "Name of the created Storage Account"
+  value       = module.resource_group_storage.storage_account_name
 }
 
 output "resource_group_name" {
-  value = module.resource_group_storage.resource_group_name
+  description = "Name of the created Resource Group"
+  value       = module.resource_group_storage.resource_group_name
+}
+
+output "container_name" {
+  description = "Name of the created Blob Container"
+  value       = module.resource_group_storage.container_name
+}
+
+output "primary_blob_endpoint" {
+  description = "Primary endpoint for Blob storage"
+  value       = module.resource_group_storage.primary_blob_endpoint
 }
