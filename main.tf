@@ -44,7 +44,7 @@ output "container_name" {
   value       = module.resource_group_storage.container_name
 }
 
-   output "primary_blob_endpoint" {
-     description = "Primary endpoint for Blob storage"
-     value       = "https://${module.resource_group_storage.storage_account_name}.blob.core.windows.net/"
-   }
+output "primary_blob_endpoint" {
+  description = "Primary endpoint for Blob storage"
+  value       = "https://${module.resource_group_storage.storage_account_name}.blob.core.windows.net/"
+}
