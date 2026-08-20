@@ -16,8 +16,8 @@ provider "azurerm" {
 }
 
 module "resource_group_storage" {
-  source  = "ll221/terraform-azurerm-resource_group_storage/azurerm"
-  version = "~> 1.0.0"
+  source  =  "git::https://github.com/ll221/terraform-azurerm-resource_group_storage.git?ref=v1.0.0"
+  version = "1.0.0"
 
   resource_group_name  = "rg-module-test"
   location             = "eastus"
@@ -27,7 +27,6 @@ module "resource_group_storage" {
   tags = {
     Environment = "test"
     Module      = "true"
-    CreatedBy   = "Terraform"
   }
 }
 
