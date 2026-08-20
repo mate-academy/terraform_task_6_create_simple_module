@@ -16,8 +16,7 @@ provider "azurerm" {
 }
 
 module "resource_group_storage" {
-  source  =  "git::https://github.com/ll221/terraform-azurerm-resource_group_storage.git?ref=v1.0.0"
-  version = "1.0.0"
+  source = "git::https://github.com/ll221/terraform-azurerm-resource_group_storage.git?ref=v1.0.1"
 
   resource_group_name  = "rg-module-test"
   location             = "eastus"
@@ -45,7 +44,7 @@ output "container_name" {
   value       = module.resource_group_storage.container_name
 }
 
-output "primary_blob_endpoint" {
-  description = "Primary endpoint for Blob storage"
-  value       = module.resource_group_storage.primary_blob_endpoint
-}
+   output "primary_blob_endpoint" {
+     description = "Primary endpoint for Blob storage"
+     value       = "https://${module.resource_group_storage.storage_account_name}.blob.core.windows.net/"
+   }
