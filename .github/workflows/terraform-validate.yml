@@ -23,6 +23,7 @@ jobs:
         terraform_version: 1.8.4
 
     - name: Check module definition
+      working-directory: modules/resource_group_storage
       run: |
         if ! grep -q 'module "resource-group-storage"' main.tf; then
           echo "Module 'resource-group-storage' not found in main.tf!"
