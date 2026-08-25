@@ -32,7 +32,7 @@ jobs:
 
     - name: Check variables definition in module
       run: |
-        if ! ls modules/resource-group-storage | grep -q 'variables.tf'; then
+        if ! ls modules/resource_group_storage | grep -q 'variables.tf'; then
           echo "variables.tf not found in module 'resource-group-storage'!"
           exit 1
         fi
@@ -40,7 +40,7 @@ jobs:
 
     - name: Check outputs definition in module
       run: |
-        if ! ls modules/resource-group-storage | grep -q 'outputs.tf'; then
+        if ! ls modules/resource_group_storage | grep -q 'outputs.tf'; then
           echo "outputs.tf not found in module 'resource-group-storage'!"
           exit 1
         fi
