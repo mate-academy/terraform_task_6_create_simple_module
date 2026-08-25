@@ -24,27 +24,27 @@ jobs:
 
     - name: Check module definition
       run: |
-        if ! grep -q 'module "resource_group_storage"' main.tf; then
-          echo "Module 'resource_group_storage' not found in main.tf!"
+        if ! grep -q 'module "resource-group-storage"' main.tf; then
+          echo "Module 'resource-group-storage' not found in main.tf!"
           exit 1
         fi
-        echo "Module 'resource_group_storage' is present in main.tf."
+        echo "Module 'resource-group-storage' is present in main.tf."
 
     - name: Check variables definition in module
       run: |
-        if ! ls modules/resource_group_storage | grep -q 'variables.tf'; then
-          echo "variables.tf not found in module 'resource_group_storage'!"
+        if ! ls modules/resource-group-storage | grep -q 'variables.tf'; then
+          echo "variables.tf not found in module 'resource-group-storage'!"
           exit 1
         fi
-        echo "variables.tf is present in module 'resource_group_storage'."
+        echo "variables.tf is present in module 'resource-group-storage'."
 
     - name: Check outputs definition in module
       run: |
-        if ! ls modules/resource_group_storage | grep -q 'outputs.tf'; then
-          echo "outputs.tf not found in module 'resource_group_storage'!"
+        if ! ls modules/resource-group-storage | grep -q 'outputs.tf'; then
+          echo "outputs.tf not found in module 'resource-group-storage'!"
           exit 1
         fi
-        echo "outputs.tf is present in module 'resource_group_storage'."
+        echo "outputs.tf is present in module 'resource-group-storage'."
     
     - name: Terraform Fmt
       run: terraform fmt -check -recursive -diff
