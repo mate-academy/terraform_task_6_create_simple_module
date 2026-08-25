@@ -13,7 +13,6 @@ provider "azurerm" {
 }
 
 
-
 module "resource_group_storage" {
   source  = "vanyas627/resource-group-storage/azurerm"
   version = "1.0.1"
