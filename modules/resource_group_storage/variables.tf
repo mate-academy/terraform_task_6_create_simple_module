@@ -5,7 +5,7 @@ variable "resource_group_name" {
 
 variable "storage_account_name" {
   description = "The name of the storage account"
-  default     = "examplestorageaccount"
+  default     = "examplestorageaccountfortask6"
 }
 
 variable "location" {

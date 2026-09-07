@@ -12,6 +12,10 @@ provider "azurerm" {
 }
 
 module "resource_group_storage" {
-  source  = "app.terraform.io/Alex_terr/resource_group_storage/azurerm"
-  version = "1.0.0"
+  source                           = "./modules/resource_group_storage" # Use local path, not remote registry
+  resource_group_name              = var.resource_group_name
+  location                         = var.location
+  storage_account_name             = var.storage_account_name
+  storage_account_tier             = var.storage_account_tier
+  storage_account_replication_type = var.storage_account_replication_type
 }
