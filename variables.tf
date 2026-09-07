@@ -17,7 +17,6 @@ variable "storage_account_tier" {
   description = "The tier for the storage account"
   default     = "Standard"
 }
-
 variable "storage_account_replication_type" {
   description = "The replication type for the storage account"
   default     = "LRS"

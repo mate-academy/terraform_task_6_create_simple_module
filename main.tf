@@ -12,7 +12,9 @@ provider "azurerm" {
 }
 
 module "resource_group_storage" {
-  source                           = "./modules/resource_group_storage" # Use local path, not remote registry
+  # Local source is used because CI has no authentication configured for the private HCP Terraform Registry.
+  source = "./modules/resource_group_storage" # Use local path, not remote registry
+
   resource_group_name              = var.resource_group_name
   location                         = var.location
   storage_account_name             = var.storage_account_name
