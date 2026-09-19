@@ -13,11 +13,16 @@ modules/resource_group_storage/
   outputs.tf
 ```
 
+Published module repository: https://github.com/Petliuk/terraform-azurerm-resource_group_storage
+
+Terraform Registry: `Petliuk/resource_group_storage/azurerm` (version `1.0.0`)
+
 ## Usage
 
 ```hcl
 module "resource_group_storage" {
-  source = "./modules/resource_group_storage"
+  source  = "Petliuk/resource_group_storage/azurerm"
+  version = "1.0.0"
 
   resource_group_name  = "task6-resources"
   storage_account_name = "task6storagepetliuk"
