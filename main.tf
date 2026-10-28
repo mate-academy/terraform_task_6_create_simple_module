@@ -1,5 +1,6 @@
 module "resource_group_storage" {
-  source = "./modules/resource_group_storage"
+  source  = "aleksandrmajlo/resource_group_storage/azurerm"
+  version = "1.0.0"
 
   resource_group_name      = var.resource_group_name
   location                 = var.location

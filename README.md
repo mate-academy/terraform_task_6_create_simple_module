@@ -50,11 +50,12 @@ The reusable module lives in `modules/resource_group_storage` and contains:
 - `INSTRUCTION.md` — local and Registry usage examples;
 - `LICENSE` — the MIT license required for publishing.
 
-The root configuration calls the local module:
+The root configuration calls version `1.0.0` of the published Registry module:
 
 ```hcl
 module "resource_group_storage" {
-  source = "./modules/resource_group_storage"
+  source  = "aleksandrmajlo/resource_group_storage/azurerm"
+  version = "1.0.0"
 
   resource_group_name  = var.resource_group_name
   location             = var.location
@@ -62,8 +63,9 @@ module "resource_group_storage" {
 }
 ```
 
-Using a local source allows this exercise's CI to initialize and validate the
-module before a separate Registry release exists.
+The copy in `modules/resource_group_storage` is the module source used to build
+the separate GitHub repository. The root configuration deliberately downloads
+the published module, as required by the task.
 
 ## Validate without creating Azure resources
 
@@ -109,8 +111,8 @@ git tag -a v1.0.0 -m "Release module v1.0.0"
 git push origin v1.0.0
 ```
 
-After connecting that repository to the Terraform Registry, replace the local
-source with:
+After connecting that repository to the Terraform Registry, use the published
+module in the root configuration:
 
 ```hcl
 module "resource_group_storage" {
@@ -123,5 +125,5 @@ module "resource_group_storage" {
 }
 ```
 
-Only switch to the Registry source after the module has actually been
-published; otherwise `terraform init` cannot download it.
+The repository is published as version `1.0.0`, so `terraform init` can download
+the module directly from Terraform Registry.
