@@ -1,0 +1,11 @@
+resource_group_name      = "mate-terraform-task-6-rg"
+location                 = "North Europe"
+storage_account_name     = "replacewithuniquename"
+account_tier             = "Standard"
+account_replication_type = "LRS"
+
+tags = {
+  environment = "training"
+  managed_by  = "terraform"
+  task        = "terraform-module-6"
+}
